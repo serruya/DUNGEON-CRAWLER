@@ -109,7 +109,7 @@ int main(int argc, char *argv[]) {
                 
                 char mapa[MAPA_ALTURA][MAPA_LARGURA] = {
                     "* * * * * * * * * *",
-                    "* **             @D",
+                    "* **              D",
                     "*  **** ******* ***",
                     "*   *   **      * *",
                     "*        * *** *  *",
@@ -198,7 +198,7 @@ int main(int argc, char *argv[]) {
                     "*              #*************#    *   *",
                     "*## #********# *             *    *   *",
                     "* #  #    *  * *##**************# *   *",
-                    "*###  #   D@ * *                * *###*",
+                    "*###  #   D  * *                * *###*",
                     "*#### #   *  * *                *     *",
                     "*#### #   *  * *               * * ****",
                     "*####  #  *                    * * *  *",
@@ -343,7 +343,7 @@ int main(int argc, char *argv[]) {
                 char terceiroMapa[TERCEIRO_MAPA_ALTURA][TERCEIRO_MAPA_LARGURA] = {
                     "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *",
                     "*                                                                             *",
-                    "*                                    @ D                                         *",
+                    "*                                                                             *",
                     "*######################################  #####################################*",
                     "*    ##                               #  #                                   #*",
                     "*    <#                               #  #    ########## #####################*",
@@ -495,7 +495,7 @@ int main(int argc, char *argv[]) {
 
             case 2:
                 system("cls"); 
-                printf("\n\n\n\t\t\t\t\t\tDungeon Crawler - Tutorial\n");
+                printf("\n\t\t\t\t\t\tDungeon Crawler - Tutorial\n");
                 printf("\n\n\t\t\tBem-vindo ao Dungeon Crawler! Aqui esta um resumo das funcoes basicas do jogo:\n\n");
                 printf("\t\t\t\tControles:\n");
                 printf("\t\t\t\tW: Mover para cima.\n");
