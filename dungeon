@@ -109,7 +109,7 @@ int main(int argc, char *argv[]) {
                 
                 char mapa[MAPA_ALTURA][MAPA_LARGURA] = {
                     "* * * * * * * * * *",
-                    "* **              D",
+                    "* **             @D",
                     "*  **** ******* ***",
                     "*   *   **      * *",
                     "*        * *** *  *",
@@ -198,7 +198,7 @@ int main(int argc, char *argv[]) {
                     "*              #*************#    *   *",
                     "*## #********# *             *    *   *",
                     "* #  #    *  * *##**************# *   *",
-                    "*###  #   D  * *                * *###*",
+                    "*###  #   D@ * *                * *###*",
                     "*#### #   *  * *                *     *",
                     "*#### #   *  * *               * * ****",
                     "*####  #  *                    * * *  *",
@@ -272,7 +272,7 @@ int main(int argc, char *argv[]) {
                         getch(); // Aguardar entrada do jogador
                         x = 1;
                         y = 1;
-                        monstroX = 5; // Reinicia a posição do monstro
+                        monstroX = 17; // Reinicia a posição do monstro
                         monstroY = 8;
                     }
 
@@ -293,28 +293,10 @@ int main(int argc, char *argv[]) {
                         }
                     }
 
-                    // Verificar se o jogador está na posição da porta aberta e pressionou em direção a ela
-                    if (portaAberta && move == 'w' && segundoMapa[y-1][x] == '=') {
+                     // Se a porta estiver aberta, o jogador pode atravessar
+                    if (portaAberta && segundoMapa[y][x] == '=') {
                         printf("\nVoce concluiu a segunda fase!\n");
-                        printf("Pressione qualquer tecla para continuar para a terceira fase...\n");
-                        getch();
-                        system("cls");
-                        break; // Encerra o loop do jogo
-                    } else if (portaAberta && move == 's' && segundoMapa[y+1][x] == '=') {
-                        printf("\nVoce concluiu a segunda fase!\n");
-                        printf("Pressione qualquer tecla para continuar para a terceira fase...\n");
-                        getch();
-                        system("cls");
-                        break; // Encerra o loop do jogo
-                    } else if (portaAberta && move == 'a' && segundoMapa[y][x-1] == '=') {
-                        printf("\nVoce concluiu a segunda fase!\n");
-                        printf("Pressione qualquer tecla para continuar para a terceira fase...\n");
-                        getch();
-                        system("cls");
-                        break; // Encerra o loop do jogo
-                    } else if (portaAberta && move == 'd' && segundoMapa[y][x+1] == '=') {
-                        printf("\nVoce concluiu a segunda fase!\n");
-                        printf("Pressione qualquer tecla para continuar para a terceira fase...\n");
+                        printf("Pressione qualquer tecla para continuar...\n");
                         getch();
                         system("cls");
                         break; // Encerra o loop do jogo
@@ -357,34 +339,34 @@ int main(int argc, char *argv[]) {
                 portaAberta = 0;
                 passagemAberta = false; // Reinicia a variável para a terceira fase
 
-                monstroX = 35, monstroY = 35; // Posição inicial do monstro
+                monstroX = 35, monstroY = 20; // Posição inicial do monstro
                 char terceiroMapa[TERCEIRO_MAPA_ALTURA][TERCEIRO_MAPA_LARGURA] = {
                     "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *",
                     "*                                                                             *",
-                    "*                                                                             *",
-                    "*#####################################  ######################################*",
-                    "*                                    #  #                                     *",
-                    "*    <                               #  #                                     *",
-                    "*                                    #  #                                     D",
-                    "*                                    #  #                                     *",
-                    "*                                    #  #                                     *",
-                    "*                                    #  #                                     *",
-                    "*                                    #  #                                     *",
-                    "*                                       #                                     *",
-                    "*######################################  #                                    *",
-                    "*                                      #  #                                   *",
-                    "*                                       #  #                                  *",
-                    "*                                        #                                    *",
+                    "*                                    @ D                                         *",
+                    "*######################################  #####################################*",
+                    "*    ##                               #  #                                   #*",
+                    "*    <#                               #  #    ########## #####################*",
+                    "*    ##                               #  #     #         ###########          D",
+                    "*     #                               #  #    #   ##################     #####*",
+                    "*     #                               #  #   #    #             #      ####   *",
+                    "*     #                               #  #    #   #       #### ###   ##       *",
+                    "*     #                               #  #     #     #####  #  #   #          *",
+                    "*                                       #      #   #         #    #           *",
+                    "*######################################  #    #   #           # #             *",
+                    "*                                      #  #      #             #              *",
+                    "*                                       #  #### ##                            *",
+                    "*                                        #      #                             *",
                     "*                                         #  #################################*",
-                    "*##########################################                            #      *",
-                    "*@          #                   ##                                     #      *",
-                    "* ######  ###############       ##                                     #      *",
-                    "*  ##      #                #   ##                                     #      *",
-                    "*#   #     ##########       #   ##                                     #      *",
-                    "*     #            #       #    ##                                     #      *",
-                    "*      #   #   ######## #       ##                                     #      *",
-                    "*        #   #                   #                                     #      *",
-                    "*#############################  ###################   ##################       *",
+                    "*##########################################                                   *",
+                    "*@          #                   ##                                            *",
+                    "* ######  ###############       ##     ###### ######  #####  #      #         *",
+                    "*  ##      #                #   ##       #    #    #  #   #  #      #         *",
+                    "*#   #     ##########       #   ##       #    #  ###  #   #  #      #         *",
+                    "*     #            #       #    ##       #    #  #    #   #  #      #         *",
+                    "*      #   #   ######## #       ##       #    #   #   #####  #####  ######    *",
+                    "*        #   #                   #                                            *",
+                    "*#############################  ###################   ########################*",
                     "*                             # #                 #   #                       *",
                     "*                             #  #                #   #                       *",
                     "*                            #  #                 #   #                       *",
@@ -393,11 +375,11 @@ int main(int argc, char *argv[]) {
                     "*                         #  #                    #   #                       *",
                     "*                        #  #######################   ########################*",
                     "*                       #  #                                                  *",
-                    "*###################   #  #                                                   *",
-                    "*                  #  #  #                                                    *",
-                    "*      >           # #  #                                                     *",
-                    "*                  ##  #                                                       *",
-                    "*                     #                             #0#                       *",
+                    "*###################   #  #     #####  ######  #######  #    #                *",
+                    "*                  #  #  #      #   #  #    #     #     #    #                *",
+                    "*      >#          # #  #       #####  ######     #     ######                *",
+                    "*########          ##  #        #      #    #     #     #    #                *",
+                    "*########             #         #      #    #     #     #    #0#              *",
                     "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
                 };
 
@@ -450,7 +432,7 @@ int main(int argc, char *argv[]) {
                         getch(); // Aguardar entrada do jogador
                         x = 1;
                         y = 1;
-                        monstroX = 35; // Reinicia a posição do monstro
+                        monstroX = 30; // Reinicia a posição do monstro
                         monstroY = 35;
                     }
 
@@ -473,8 +455,9 @@ int main(int argc, char *argv[]) {
 
                     // Verificar se o jogador está na posição da porta aberta e pressionou em direção a ela
                     if (portaAberta && (terceiroMapa[y][x] == '=')) {
-                        printf("\nVoce concluiu a terceira fase e venceu o jogo!\n");
-                        printf("Pressione qualquer tecla para voltar ao menu principal...\n");
+                    	system ("cls");
+                        printf("\n\n\t\t\t\t\t\tVoce concluiu todas as fases e venceu o jogo!\n\n\n");
+                        printf("\t\t\t\t\t\tPressione qualquer tecla para voltar ao menu principal...\n");
                         getch();
                         system("cls");
                         goto menu_principal; // Volta ao menu principal
@@ -513,23 +496,24 @@ int main(int argc, char *argv[]) {
             case 2:
                 system("cls"); 
                 printf("\n\n\n\t\t\t\t\t\tDungeon Crawler - Tutorial\n");
-                printf("\n\n\t\t\tBem-vindo ao Dungeon Crawler! Aqui está um resumo das funções básicas do jogo:\n\n");
+                printf("\n\n\t\t\tBem-vindo ao Dungeon Crawler! Aqui esta um resumo das funcoes basicas do jogo:\n\n");
                 printf("\t\t\t\tControles:\n");
                 printf("\t\t\t\tW: Mover para cima.\n");
                 printf("\t\t\t\tA: Mover para a esquerda.\n");
                 printf("\t\t\t\tS: Mover para baixo.\n");
                 printf("\t\t\t\tD: Mover para a direita.\n");
                 printf("\t\t\t\tI: Interagir com objetos.\n\n");
-                printf("\t\t\t\tSímbolos:\n");
-                printf("\t\t\t\t&: Você, o jogador.\n");
-                printf("\t\t\t\t*: Parede, você não pode atravessar.\n");
+                printf("\t\t\t\tSimbolos:\n");
+                printf("\t\t\t\t&: Voce, o jogador.\n");
+                printf("\t\t\t\t*: Parede, voce nao pode atravessar.\n");
                 printf("\t\t\t\t@: Chave para abrir a porta.\n");
                 printf("\t\t\t\tD: Porta fechada.\n");
                 printf("\t\t\t\t=: Porta aberta depois de pegar a chave.\n");
                 printf("\t\t\t\t#: Espinhos, reiniciam a fase se tocados.\n");
-                printf("\t\t\t\t<: Teletransporte para a extremidade direita.\n");
-                printf("\t\t\t\t>: Teletransporte para a extremidade esquerda.\n");
-                printf("\t\t\t\tV: Monstro, cuidado!\n\n");
+                printf("\t\t\t\t<: Teletransporte.\n");
+                printf("\t\t\t\t>: Teletransporte.\n");
+                printf("\t\t\t\tX: Monstro 1, cuidado! \n");
+                printf("\t\t\t\tV: Monstro 2, cuidado!\n\n");
                 printf("\t\t\t\tObjetivo:\n");
                 printf("\t\t\t\tEncontre a chave, abra a porta e evite os espinhos.\n\n");
                 printf("\t\t\t\tPressione qualquer tecla para voltar ao menu principal...\n\n\n\n\n");
@@ -538,9 +522,11 @@ int main(int argc, char *argv[]) {
                 break;
 
             case 3:
+            	system ("cls");
                 printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\tEncerrando...\n\n\n\n\n\n\n\n\n\n\n\n\n");
                 Sleep(1000); 
-                exit(0);
+                
+                return 0;
                 
             default:
                 printf("\n\n\n\n\n\n\t\t\t\t\t\tOpcao invalida!\n\n\n\n\n\n\n\n\n\n\n");
